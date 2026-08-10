@@ -7,9 +7,10 @@ from copy import deepcopy
 from pathlib import Path
 from typing import Any
 
-ROOT = Path(__file__).resolve().parents[2]
-DEFAULTS_PATH = ROOT / "config" / "defaults.json"
-USER_SETTINGS_PATH = ROOT / "config" / "settings.json"
+from src.utils.paths import app_root, user_data_dir
+
+DEFAULTS_PATH = app_root() / "config" / "defaults.json"
+USER_SETTINGS_PATH = user_data_dir() / "settings.json"
 
 ACTION_CHOICES = [
     ("left_click", "Click / Drag (hold pinch)"),

@@ -6,3 +6,6 @@ __pycache__/
 config/settings.json
 *.log
 .gh-config/
+build/
+dist/
+*.spec.bak

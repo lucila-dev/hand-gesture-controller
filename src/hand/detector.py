@@ -26,8 +26,9 @@ MODEL_URL = (
     "https://storage.googleapis.com/mediapipe-models/"
     "hand_landmarker/hand_landmarker/float16/1/hand_landmarker.task"
 )
-ROOT = Path(__file__).resolve().parents[2]
-DEFAULT_MODEL_PATH = ROOT / "models" / "hand_landmarker.task"
+from src.utils.paths import app_root, user_data_dir
+
+DEFAULT_MODEL_PATH = app_root() / "models" / "hand_landmarker.task"
 
 HAND_CONNECTIONS = [
     (conn.start, conn.end)
@@ -43,12 +44,15 @@ class HandResult:
 
 
 def ensure_model(model_path: Path = DEFAULT_MODEL_PATH) -> Path:
-    model_path.parent.mkdir(parents=True, exist_ok=True)
     if model_path.exists() and model_path.stat().st_size > 0:
         return model_path
-    print(f"Downloading hand landmarker model to {model_path} …")
-    urlretrieve(MODEL_URL, model_path)
-    return model_path
+    fallback = user_data_dir() / "hand_landmarker.task"
+    if fallback.exists() and fallback.stat().st_size > 0:
+        return fallback
+    fallback.parent.mkdir(parents=True, exist_ok=True)
+    print(f"Downloading hand landmarker model to {fallback} …")
+    urlretrieve(MODEL_URL, fallback)
+    return fallback
 
 
 class HandDetector:
