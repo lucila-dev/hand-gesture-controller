@@ -73,7 +73,7 @@ class ActionController:
                     )
                     CGEventPost(kCGHIDEventTap, event)
                 return True, ""
-            return False, "Mouse did not move — grant Accessibility to Cursor or Python"
+            return False, "Mouse did not move — grant Accessibility to this app or Python"
         except Exception as exc:
             return False, str(exc)
 

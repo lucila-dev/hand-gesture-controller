@@ -5,7 +5,6 @@ __pycache__/
 .DS_Store
 config/settings.json
 *.log
-.gh-config/
 build/
 dist/
 *.spec.bak

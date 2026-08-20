@@ -174,7 +174,7 @@ class GestureEngine:
             )
 
         if not self.mouse_ok:
-            msg = "Enable Accessibility for Cursor — System Settings → Privacy"
+            msg = "Enable Accessibility for this app — System Settings → Privacy"
             self._hud(frame, msg, (80, 80, 255))
             return frame, FrameState(
                 gesture=gesture,

@@ -56,7 +56,7 @@ class MainWindow(QMainWindow):
                 "Accessibility required",
                 "Gesture Control cannot move your mouse.\n\n"
                 f"{err}\n\n"
-                "Enable Accessibility for Cursor (or Python):\n"
+                "Enable Accessibility for this app (or Python):\n"
                 "System Settings → Privacy & Security → Accessibility\n\n"
                 "Then restart the app.",
             )
@@ -219,14 +219,14 @@ class MainWindow(QMainWindow):
                 "Camera unavailable\n\n"
                 "macOS blocked webcam access.\n"
                 "System Settings → Privacy & Security → Camera\n"
-                "Enable Cursor (or Terminal), then click Retry Camera."
+                "Allow Camera access, then click Retry Camera."
             )
             self.retry_btn.show()
             self.status.showMessage("Camera permission required")
             QMessageBox.warning(
                 self,
                 "Camera permission needed",
-                "Allow Camera access for Cursor (or the app that launched this),\n"
+                "Allow Camera access for this app (or Terminal),\n"
                 "then click Retry Camera.\n\n"
                 "System Settings → Privacy & Security → Camera",
             )
@@ -325,17 +325,17 @@ class MainWindow(QMainWindow):
                 self,
                 "Mouse test failed",
                 f"Could not click.\n\n{err}\n\n"
-                "On macOS grant Accessibility to Cursor (or Terminal):\n"
+                "On macOS grant Accessibility to this app (or Terminal):\n"
                 "System Settings → Privacy & Security → Accessibility",
             )
         else:
-            self.status.showMessage(f"Test click OK at {x},{y} — if nothing happened, enable Accessibility for Cursor")
+            self.status.showMessage(f"Test click OK at {x},{y} — if nothing happened, enable Accessibility for this app")
             QMessageBox.information(
                 self,
                 "Mouse test",
                 f"Sent a click at ({x}, {y}).\n\n"
                 "If you did not see a click on the item under the cursor,\n"
-                "enable Accessibility for Cursor:\n"
+                "enable Accessibility for this app:\n"
                 "System Settings → Privacy & Security → Accessibility",
             )
 
