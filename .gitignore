@@ -8,3 +8,4 @@ config/settings.json
 build/
 dist/
 *.spec.bak
+
