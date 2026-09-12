@@ -26,3 +26,4 @@ ZIP="dist/Gesture-Control-macOS.zip"
 rm -f "$ZIP"
 ditto -c -k --keepParent "$OUT" "$ZIP"
 echo "Archive: $ZIP"
+
